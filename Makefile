@@ -9,10 +9,21 @@ SRC_DIR	=	sources
 
 ROOT	=	.
 
-SRC	=	$(SRC_DIR)/utils/my_calloc.c \
-		$(SRC_DIR)/isometryx.c	
+SRC	=	$(SRC_DIR)/utils/my_calloc.c 		\
+		$(SRC_DIR)/utils/my_memcpy.c		\
+		$(SRC_DIR)/zones/memory_management.c	\
+		$(SRC_DIR)/zones/zone_loading.c
 
-FUNCS	=	--redefine-sym isometryx_parse_zone=parse_zone
+FUNCS	=	--redefine-sym isometryx_create_zone=create_zone 		\
+		--redefine-sym isometryx_create_tiled_zone=create_tiled_zone 	\
+		--redefine-sym isometryx_destroy_zone=destroy_zone		\
+		--redefine-sym isometryx_copy_zone=copy_zone			\
+		--redefine-sym isometryx_load_tiles_in=load_tiles_in		\
+		--redefine-sym isometryx_add_layer=add_layer			\
+		--redefine-sym isometryx_add_column=add_column			\
+		--redefine-sym isometryx_add_row=add_row			\
+		--redefine-sym isometryx_copy_tiles=copy_tiles			\
+		
 
 NAME	=	libisometryx.so
 

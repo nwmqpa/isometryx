@@ -9,5 +9,6 @@
 #define UTILS_H_
 
 void *my_calloc(int size);
+void my_memcpy(char *dest, char *src, int len);
 
 #endif /* UTILS_H_ */
