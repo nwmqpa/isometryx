@@ -22,7 +22,9 @@ V	?=	@
 
 CC	=	gcc
 
-CFLAGS	=	-I includes/ -I sfml_includes -fPIC
+CFLAGS	=	-I includes/ -I sfml_includes -fPIC -std=c99
+
+LDFLAGS =	-shared
 
 #-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-
 
@@ -50,7 +52,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 		$(V)ld -r -o final.o $(OBJS)
-		$(V)gcc -shared -o $(NAME) final.o
+		$(V)gcc -o $(NAME) $(LDFLAGS) final.o
 		$(V)printf "$(GREEN)Creating isometryx library.\n$(WHITE)"
 clean:
 		$(V)printf "$(ORANGE)Removing isometryx objects.\n$(WHITE)"
