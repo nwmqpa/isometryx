@@ -17,3 +17,6 @@ deploy:
         secure: GITHUB_PASSWORD
     file: "libisometryx.so"
     skip_cleanup: true
+    on:
+        tags: true
+
