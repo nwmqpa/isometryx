@@ -1,0 +1,19 @@
+language: c
+compiler: gcc
+
+script: make
+
+
+before_deploy:
+    - git config --local user.name "nwmqpa"
+    - git config --local user.email "thomas.nicollet@epitech.eu"
+    - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+
+deploy:
+    provider: releases
+    user: 
+        secure: GITHUB_USERNAME
+    password:
+        secure: GITHUB_PASSWORD
+    file: "libisometryx.so"
+    skip_cleanup: true
